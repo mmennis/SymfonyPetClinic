@@ -4,6 +4,7 @@
 /app/logs/*
 /app/config/parameters.ini
 /vendor/
+.settings/
 .project
 .buildpath
 
