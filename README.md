@@ -61,6 +61,13 @@ environment.
 4) Setup and populate database
 ------------------------------
 
+First go to http://localhost/petclinic/app_dev.php and click on configure button.
+Follow the instructions to configure the mysql database connection for the application.  
+
+First create the database you just configured:
+
+    php app/console doctrine:database:create
+    
 
 
 
