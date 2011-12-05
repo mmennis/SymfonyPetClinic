@@ -1,0 +1,7 @@
+parameters:
+#    nr_test_pet_clinic.example.class: NRTest\PetClinicBundle\Example
+
+services:
+#    nr_test_pet_clinic.example:
+#        class: %nr_test_pet_clinic.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
