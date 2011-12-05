@@ -43,7 +43,22 @@ From the project home directory:
 
     php bin/vendors install
     
-3) Setup and populate database
+3) Configure apache
+-------------------
+
+You should add something like this to the apache configuration file httpd.conf
+
+    Alias /petclinic/ $APP_HOME/SymfonyPetClinic/web/
+    <Directory "$APP_HOME/SymfonyPetClinic/web" >
+      AllowOverride All
+      Allow from All
+    </Directory>
+    
+The application .htaccess file has been configured to use htttp://localhost/petclinic/app_dev.php for the development
+environment.
+    
+    
+4) Setup and populate database
 ------------------------------
 
 
@@ -51,9 +66,7 @@ From the project home directory:
 
 
 
-
-
-
+ 
 
 
 
