@@ -1,40 +1,54 @@
-Symfony Standard Edition
-========================
+Project Description
+===================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new app. If you want
-to learn more about the features included, see the "What's Inside?" section.
+This is an implementation of the Spring Framework PetClinic demo application.  It uses The Php Symfony 2.0 framework.
 
-This document contains information on how to download and start using Symfony.
-For a more detailed explanation, see the
-[Installation chapter](http://symfony.com/doc/current/book/installation.html)
-of the Symfony Documentation.
+1) Prerequisites
+----------------
 
-1) Download the Standard Edition
---------------------------------
+* Php 5.3 most recent version.
+* Webserver - Apache 2.x 
+* MySQL 5.x
 
-If you've already downloaded the standard edition, and unpacked it somewhere
-within your web root directory, then move on to the "Installation" section.
+2) Install aditional Php libraries
+----------------------------------
 
-To download the standard edition, you have two options:
+Some additional libraries are require for the application.  If you're using the distribution version
+of the php tools (pecl, pear) you'll need sudo - we typically compile our own php for testing.
 
-### Download an archive file (*recommended*)
+### a) Install MySQL PDO driver 
 
-The easiest way to get started is to download an archive of the standard edition
-(http://symfony.com/download). Unpack it somewhere under your web server root
-directory and you're done. The web root is wherever your web server (e.g. Apache)
-looks when you access `http://localhost` in a browser.
+    pecl install PDO_MYSQL
+    
+As per instructions in the install you should add "extension=pdo_mysql.so" to your php.ini
 
-### Clone the git Repository
+### b) Install PhpUnit
 
-We highly recommend that you download the packaged version of this distribution.
-But if you still want to use Git, you are on your own.
+This library is for running tests so you could skip if you no intention of running the test suite.
 
-Run the following commands:
+    pear config-set auto_discover 1
+    pear install pear.phpunit.de/PHPUnit
+    
+### c) Install Symfony dependencies
 
-    git clone http://github.com/symfony/symfony-standard.git
-    cd symfony-standard
-    rm -rf .git
+First copy the app/config/parameters.ini.dist file to app/config/parameters.ini
+From the project home directory:
+
+    php bin/vendors install
+    
+3) Setup and populate database
+------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 2) Installation
 ---------------
