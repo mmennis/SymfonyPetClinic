@@ -1,0 +1,30 @@
+specialty:
+    pattern:  /
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:index" }
+
+specialty_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:show" }
+
+specialty_new:
+    pattern:  /new
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:new" }
+
+specialty_create:
+    pattern:  /create
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:create" }
+    requirements: { _method: post }
+
+specialty_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:edit" }
+
+specialty_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:update" }
+    requirements: { _method: post }
+
+specialty_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NRTestPetClinicBundle:Specialty:delete" }
+    requirements: { _method: post }

@@ -17,3 +17,11 @@ pettype:
 visit:
     resource: "routing/visit.yml"
     prefix: /visit
+    
+vet:
+    resource: "routing/vet.yml"
+    prefix: /vet
+    
+specialty:
+    resource: "routing/specialty.yml"
+    prefix: /specialty
