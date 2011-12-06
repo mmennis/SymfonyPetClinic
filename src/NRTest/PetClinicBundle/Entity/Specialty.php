@@ -129,6 +129,7 @@ class Specialty
     {
     	$this->vets = new ArrayCollection();
     	$this->createdAt = new \DateTime();
+    	$this->updatedAt = new \DateTime();
     }
     
     /**

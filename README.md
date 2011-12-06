@@ -64,25 +64,25 @@ environment.
 First go to http://localhost/petclinic/app_dev.php and click on configure button.
 Follow the instructions to configure the mysql database connection for the application.  
 
-First create the database you just configured:
+### a) First create the database you just configured:
 
     php app/console doctrine:database:create
     
+### b) Create the database tables:
+    
+    php app/console 
+    
+### c) Then populate the PetClinic database using this command:
+
+    php app/console petclinic:populate
+
+This can take a while depending on how many pet owners and vets are requested.
 
 
-
-
-
- 
-
-
-
-
-3) Learn about Symfony!
+5) Learn about Symfony!
 -----------------------
 
-This distribution is meant to be the starting point for your application,
-but it also contains some sample code that you can learn from and play with.
+If you'd like to know more about Symfony 2.0:
 
 A great way to start learning Symfony is via the [Quick Tour](http://symfony.com/doc/current/quick_tour/the_big_picture.html),
 which will take you through all the basic features of Symfony2 and the test

@@ -176,6 +176,7 @@ class Pet
     public function __construct()
     {
     	$this->createdAt = new \DateTime();
+    	$this->updatedAt = new \DateTime();
     }
     
     /**

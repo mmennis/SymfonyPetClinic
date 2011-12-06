@@ -130,6 +130,7 @@ class PetType
     public function __construct()
     {
     	$this->pets = new ArrayCollection();
+    	$this->updatedAt = new \DateTime();
     	$this->createdAt = new \DateTime();
     }
     
