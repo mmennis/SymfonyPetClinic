@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class OwnerControllerTest extends WebTestCase
 {
-    /* 
+    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -19,7 +19,7 @@ class OwnerControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'owner[field_name]'  => 'Test',
+            'owner[Firstname]'  => 'Test',
             // ... other fields to fill
         ));
 
