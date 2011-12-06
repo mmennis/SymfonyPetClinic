@@ -1,0 +1,30 @@
+pet:
+    pattern:  /
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:index" }
+
+pet_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:show" }
+
+pet_new:
+    pattern:  /new
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:new" }
+
+pet_create:
+    pattern:  /create
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:create" }
+    requirements: { _method: post }
+
+pet_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:edit" }
+
+pet_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:update" }
+    requirements: { _method: post }
+
+pet_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NRTestPetClinicBundle:Pet:delete" }
+    requirements: { _method: post }

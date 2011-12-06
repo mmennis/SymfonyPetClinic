@@ -4,6 +4,8 @@ namespace NRTest\PetClinicBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * NRTest\PetClinicBundle\Entity\Pet
  *
@@ -173,7 +175,7 @@ class Pet
     */
     public function __construct()
     {
-    	setCreatedAt(new \DateTime());
+    	$this->createdAt = new \DateTime();
     }
     
     /**
@@ -182,7 +184,7 @@ class Pet
      */
     public function preUpdate()
     {
-    	setUpdatedAt(new \DateTime());
+    	$this->updatedAt = new \DateTime();
     }
 
     /**

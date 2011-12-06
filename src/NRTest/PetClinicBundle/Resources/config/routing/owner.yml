@@ -1,0 +1,30 @@
+owner:
+    pattern:  /
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:index" }
+
+owner_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:show" }
+
+owner_new:
+    pattern:  /new
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:new" }
+
+owner_create:
+    pattern:  /create
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:create" }
+    requirements: { _method: post }
+
+owner_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:edit" }
+
+owner_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:update" }
+    requirements: { _method: post }
+
+owner_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NRTestPetClinicBundle:Owner:delete" }
+    requirements: { _method: post }

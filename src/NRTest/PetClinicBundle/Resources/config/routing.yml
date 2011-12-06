@@ -1,3 +1,19 @@
 NRTestPetClinicBundle_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: NRTestPetClinicBundle:Default:index }
+
+owner:
+    resource: "routing/owner.yml"
+    prefix: /owner
+    
+pet:
+    resource: "routing/pet.yml"
+    prefix: /pet
+    
+pettype:
+    resource: "routing/pettype.yml"
+    prefix: /pettype
+    
+visit:
+    resource: "routing/visit.yml"
+    prefix: /visit

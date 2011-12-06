@@ -1,0 +1,30 @@
+pettype:
+    pattern:  /
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:index" }
+
+pettype_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:show" }
+
+pettype_new:
+    pattern:  /new
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:new" }
+
+pettype_create:
+    pattern:  /create
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:create" }
+    requirements: { _method: post }
+
+pettype_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:edit" }
+
+pettype_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:update" }
+    requirements: { _method: post }
+
+pettype_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NRTestPetClinicBundle:PetType:delete" }
+    requirements: { _method: post }

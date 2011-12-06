@@ -154,7 +154,7 @@ class Visit
     */
     public function __construct()
     {
-    	setCreatedAt(new \DateTime());
+    	$this->createdAt = new \DateTime();
     }
     
     /**
@@ -163,7 +163,7 @@ class Visit
      */
     public function preUpdate()
     {
-    	setUpdatedAt(new \DateTime());
+    	$this->updatedAt = new \DateTime();
     }
 
     /**
