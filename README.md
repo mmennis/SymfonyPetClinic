@@ -70,7 +70,7 @@ Follow the instructions to configure the mysql database connection for the appli
     
 ### b) Create the database tables:
     
-    php app/console 
+    php app/console doctrine:schema:create
     
 ### c) Then populate the PetClinic database using this command:
 
