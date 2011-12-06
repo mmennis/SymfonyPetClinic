@@ -1,39 +1,31 @@
-<h1>Owner list</h1>
+{% extends "NRTestPetClinicBundle::layout.html.twig" %}
+
+{% block title "All Owners" %}
+
+{% block content %}
+<h1>Listing Owners</h1>
 
 <table class="records_list">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
+            <th>Owner Name</th>
             <th>Address</th>
             <th>City</th>
             <th>Telephone</th>
-            <th>Createdat</th>
-            <th>Updatedat</th>
-            <th>Actions</th>
+            <th>Pets</th>
         </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('owner_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.firstName }}</td>
-            <td>{{ entity.lastName }}</td>
+            <td><a href="{{ path('owner_show', { 'id': entity.id }) }}">{{ entity.firstName }}&nbsp;{{ entity.lastName }}</a></td>
             <td>{{ entity.address }}</td>
             <td>{{ entity.city }}</td>
             <td>{{ entity.telephone }}</td>
-            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif%}</td>
-            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif%}</td>
             <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('owner_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('owner_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+            	{% for pet in entity.pets %}
+            		<a href="{{ path('pet_show', {'id': pet.id }) }}">{{ pet.name }}</a>
+            	{% endfor %}
             </td>
         </tr>
     {% endfor %}
@@ -47,3 +39,5 @@
         </a>
     </li>
 </ul>
+
+{% endblock %}
