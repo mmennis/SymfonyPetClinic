@@ -1,1 +1,11 @@
-Hello {{ name }}!
+{% extends "NRTestPetClinicBundle::layout.html.twig" %}
+
+{% block title "Home Page" %}
+
+{% block content %}
+<h1></h1>
+<ul>
+	<li><a href="">Find Owners</a></li>
+	<li><a href="/petclinic/vet/">All Vets</a></li>
+</ul>
+{% endblock %}
