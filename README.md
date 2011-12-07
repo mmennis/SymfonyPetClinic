@@ -78,8 +78,19 @@ Follow the instructions to configure the mysql database connection for the appli
 
 This can take a while depending on how many pet owners and vets are requested.
 
+5) Check the application
+------------------------
 
-5) Learn about Symfony!
+### a) Move the application media and assets to a public directory
+
+    php app/console assets:install web
+    
+### b) Check the http://localhost/petclinic/owner/
+
+If you have a problem clear the caches for the production deployment before going further
+    php app/console cache:clear --env=prod
+
+6) Learn about Symfony!
 -----------------------
 
 If you'd like to know more about Symfony 2.0:
