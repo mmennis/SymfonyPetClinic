@@ -1,18 +1,18 @@
-<h1>Owner</h1>
+{% extends "NRTestPetClinicBundle::layout.html.twig" %}
 
-<table class="record_properties">
+{% block title %}
+Pet Owner {{ entity.firstName }} {{ entity.lastName }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Owner Information</h1>
+
+<table>
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Firstname</th>
-            <td>{{ entity.firstName }}</td>
-        </tr>
-        <tr>
-            <th>Lastname</th>
-            <td>{{ entity.lastName }}</td>
+            <th>Name</th>
+            <td>{{ entity.firstName }} {{ entity.lastName }}</td>
         </tr>
         <tr>
             <th>Address</th>
@@ -26,32 +26,52 @@
             <th>Telephone</th>
             <td>{{ entity.telephone }}</td>
         </tr>
-        <tr>
-            <th>Createdat</th>
-            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
-        </tr>
-        <tr>
-            <th>Updatedat</th>
-            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
-        </tr>
     </tbody>
 </table>
+<table class="table-buttons">
+	<tr>
+		<td><a href="{{ path('owner') }}">Back to the list</a></td>
+		<td><a href="{{ path('owner_edit', { 'id': entity.id }) }}">Edit</a></td>
+	</tr>
+</table>
+<h2>Pets and Visits</h2>
+{% for pet in entity.pets %}
+<table width="94%">
+	<tr>
+		<td valign="top">
+			<table>
+				<tr>
+					<th>Name</th>
+					<td>{{ pet.name }}</td>
+				</tr>
+				<tr>
+					<th>Birthdate</th>
+					<td>{{ pet.birthDate|date("m/d/Y") }}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{ pet.petType }}</td>
+				</tr>
+			</table>
+		</td>
+		<td valign="top">
+			<table>
+				<tr>
+					<thead>
+						<th>Visit Date</th>
+						<th>Description</th>
+					</thead>
+				</tr>
+				{% for visit in pet.visits %}
+				<tr>
+					<td valign="top">{{ visit.visitDate|date("m/d/Y") }}</td>
+					<td>{{ visit.description }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</td>
+	</tr>
+</table>
+{% endfor %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('owner') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('owner_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('owner_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% endblock %}
