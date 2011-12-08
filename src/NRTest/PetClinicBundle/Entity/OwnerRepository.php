@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class OwnerRepository extends EntityRepository
 {
+	
+	public function findAllByLastName($lastName)
+	{
+		return $this->getEntityManager()
+			->createQuery('SELECT o FROM NRTestPetClinicBundle:Owner o WHERE o.lastName LIKE \'%'.$lastName.'%\' ')
+			->getResult();
+	}
 }

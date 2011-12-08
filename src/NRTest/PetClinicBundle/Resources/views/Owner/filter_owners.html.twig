@@ -1,0 +1,10 @@
+{% extends "NRTestPetClinicBundle::layout.html.twig" %}
+
+{% block title "Filter owners" %}
+
+{% block content %}
+<form action="/petclinic/owner/find_by_name" method="get">
+	{{ form_widget(form) }}
+	<input type="submit">
+</form>
+{% endblock %}

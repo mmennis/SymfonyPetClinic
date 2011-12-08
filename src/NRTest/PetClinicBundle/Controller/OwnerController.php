@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use NRTest\PetClinicBundle\Entity\Owner;
 use NRTest\PetClinicBundle\Form\OwnerType;
 
+use Symfony\Component\HttpFoundation\Request;
+
 /**
  * Owner controller.
  *
@@ -24,6 +26,37 @@ class OwnerController extends Controller
         $entities = $em->getRepository('NRTestPetClinicBundle:Owner')->findAll();
 
         return $this->render('NRTestPetClinicBundle:Owner:index.html.twig', array(
+            'entities' => $entities
+        ));
+    }
+    
+    public function filterOwnersFormAction(Request $request)
+    {
+    	
+    	$defaultData = array('filter' => "Enter last name", 
+    						'csrf_protection' => false);
+    	$form = $this->createFormBuilder($defaultData)
+    		->add('filter', 'text')
+    		->getForm();
+    	
+    	
+    	return $this->render('NRTestPetClinicBundle:Owner:filter_owners.html.twig', 
+    			array('form' => $form->createView()));
+    }
+    
+    /**
+     * Finds all matching owners with last name like request parameter
+     * @param Request $request
+     */
+    public function findOwnersAction(Request $request)
+    {
+    	// FIXME - add code to extract filter from form data.
+    	
+    	$em = $this->getDoctrine()->getEntityManager();
+    	
+    	$entities = $em->getRepository('NRTestPetClinicBundle:Owner')->findAllByLastName('Sm');
+    	
+    	return $this->render('NRTestPetClinicBundle:Owner:index.html.twig', array(
             'entities' => $entities
         ));
     }
