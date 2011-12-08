@@ -45,7 +45,12 @@ class PopulateCommand extends ContainerAwareCommand
 						"Sophie", "Katie", "Annie");
 		
 		$specialtyNames = array("dentistry", "dermatology", "emergency", "imaging", "radiology", "surgery", "vision");
-
+		
+		$ownerLastNames = array("Smith", "Jones", "Lee", "Johnson", "Williams");
+		for ($i = 0; $i < 15; $i++ )
+		{
+			array_push($ownerLastNames, $faker->lastName());
+		}
 		
 		foreach ($petTypeNames as $petTypeName) 
 		{
@@ -61,7 +66,7 @@ class PopulateCommand extends ContainerAwareCommand
 		{
 			$owner = new Owner();
 			$owner->setFirstName($faker->firstName());
-			$owner->setLastName($faker->lastName());
+			$owner->setLastName($ownerLastNames[rand(0, count($ownerLastNames)-1)]);
 			$owner->setAddress($faker->streetAddress());
 			$owner->setCity($faker->city());
 			$owner->setTelephone("408-555-1212");

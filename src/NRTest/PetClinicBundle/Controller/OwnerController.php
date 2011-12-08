@@ -39,7 +39,7 @@ class OwnerController extends Controller
     	
     	$defaultData = array('filter' => "");
     	$form = $this->createFormBuilder($defaultData, array('csrf_protection' => false))
-    		->add('filter', 'text')
+    		->add('filter', 'text', array('required' => false))
     		->getForm();
     	
     	return $this->render('NRTestPetClinicBundle:Owner:filter_owners.html.twig', 
