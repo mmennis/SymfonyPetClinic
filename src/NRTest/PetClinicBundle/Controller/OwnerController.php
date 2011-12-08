@@ -30,15 +30,17 @@ class OwnerController extends Controller
         ));
     }
     
+    /**
+     * Creates the form to filter pet owners 
+     * @param Request $request
+     */
     public function filterOwnersFormAction(Request $request)
     {
     	
-    	$defaultData = array('filter' => "Enter last name", 
-    						'csrf_protection' => false);
-    	$form = $this->createFormBuilder($defaultData)
+    	$defaultData = array('filter' => "");
+    	$form = $this->createFormBuilder($defaultData, array('csrf_protection' => false))
     		->add('filter', 'text')
     		->getForm();
-    	
     	
     	return $this->render('NRTestPetClinicBundle:Owner:filter_owners.html.twig', 
     			array('form' => $form->createView()));
@@ -50,11 +52,21 @@ class OwnerController extends Controller
      */
     public function findOwnersAction(Request $request)
     {
-    	// FIXME - add code to extract filter from form data.
+    	$logger = $this->get('logger');
     	
+    	$data = array();
+    	if ($request->getMethod() == 'GET')
+    	{
+    		$query = $request->query;
+    		foreach ($query->keys() as $k)
+    		{
+    			$logger->debug("The query object says: key[".$k."] -> ".$query->get($k));
+    		}
+    		$data = $query->get('form');
+    	}
+    	    	
     	$em = $this->getDoctrine()->getEntityManager();
-    	
-    	$entities = $em->getRepository('NRTestPetClinicBundle:Owner')->findAllByLastName('Sm');
+    	$entities = $em->getRepository('NRTestPetClinicBundle:Owner')->findAllByLastName($data['filter']);
     	
     	return $this->render('NRTestPetClinicBundle:Owner:index.html.twig', array(
             'entities' => $entities
