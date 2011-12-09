@@ -24,12 +24,27 @@ class PopulateCommand extends ContainerAwareCommand
 		$this
 			->setName("petclinic:populate")
 			->setDescription("Populate the petclinic database with standard data")
+			->addOption('owners', null, InputOption::VALUE_REQUIRED, 'How many owners should be generated', 50)
+			->addOption('vets', null, InputOption::VALUE_REQUIRED, 'How many vets should be generated', 50)
 		;
 	}
 	
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$faker = Faker\Factory::create();
+		
+		
+		$ownerCount = 50;
+		if ($input->getOption('owners') )
+		{
+			$ownerCount = $input->getOption('owners');
+		}
+		
+		$vetCount = 50;
+		if ( $input->getOption('vets') )
+		{
+			$vetCount = $input->getOption('vets');
+		}
 		
 		$em = $this->getContainer()->get('doctrine')->getEntityManager();
 		
@@ -62,7 +77,7 @@ class PopulateCommand extends ContainerAwareCommand
 		
 		$petTypes = $em->getRepository("NRTestPetClinicBundle:PetType")->findAll();
 		
-		for ($i =0; $i < 100; $i++) 
+		for ($i =0; $i < $ownerCount; $i++) 
 		{
 			$owner = new Owner();
 			$owner->setFirstName($faker->firstName());
@@ -109,7 +124,7 @@ class PopulateCommand extends ContainerAwareCommand
 		}		
 		$specialties = $em->getRepository("NRTestPetClinicBundle:Specialty")->findAll();
 		
-		for ($i = 0; $i < 100; $i++) {
+		for ($i = 0; $i < $vetCount; $i++) {
 			
 			$vet = new Vet();
 			$vet->setFirstName($faker->firstName());

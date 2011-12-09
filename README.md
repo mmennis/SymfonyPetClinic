@@ -83,6 +83,10 @@ app/config/parameters.ini file directly.
 ### c) Then populate the PetClinic database using this command:
 
     php app/console petclinic:populate
+    
+This command has options to control how many owners and vets are generated.  See
+
+    php app/console petclinic:populate -h
 
 This can take a while depending on how many pet owners and vets are requested.
 
