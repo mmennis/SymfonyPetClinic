@@ -3,6 +3,11 @@ Project Description
 
 This is an implementation of the Spring Framework PetClinic demo application.  It uses The Php Symfony 2.0 framework.
 
+Symfony 2.0 is a significant upgrade to the Symfony framework and parts of the framework are being adopted
+for larger projects like Drupal.
+The choice for our testing was based on the fact that the models are lazy-loaded by default unlike other PHP frameworks
+which is useful for certain aspects of our testing.
+
 1) Prerequisites
 ----------------
 
@@ -64,6 +69,9 @@ environment.
 First go to http://localhost/petclinic/app_dev.php and click on configure button.
 Follow the instructions to configure the mysql database connection for the application.  
 
+This may not work currently.  If you don't get a symfony specific page you can just edit the 
+app/config/parameters.ini file directly.
+
 ### a) First create the database you just configured:
 
     php app/console doctrine:database:create
@@ -90,15 +98,4 @@ This can take a while depending on how many pet owners and vets are requested.
 If you have a problem clear the caches for the production deployment before going further
     php app/console cache:clear --env=prod
 
-6) Learn about Symfony!
------------------------
-
-If you'd like to know more about Symfony 2.0:
-
-A great way to start learning Symfony is via the [Quick Tour](http://symfony.com/doc/current/quick_tour/the_big_picture.html),
-which will take you through all the basic features of Symfony2 and the test
-pages that are available in the standard edition.
-
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book](http://symfony.com/doc/current/).
 
